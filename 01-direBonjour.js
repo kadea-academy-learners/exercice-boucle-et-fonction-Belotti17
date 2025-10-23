@@ -13,7 +13,9 @@
 function direBonjour() {
   // Exercice non implémenté : l'étudiant doit afficher "Bonjour le monde".
   // Placeholder neutre : ne fait rien et retourne undefined.
+  console.log("Bonjour le monde");
 }
+direBonjour();
 
 // Ne pas modifier la ligne ci-dessous
-module.exports = { direBonjour }
+module.exports = { direBonjour };
