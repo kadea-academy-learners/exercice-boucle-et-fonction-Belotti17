@@ -8,15 +8,22 @@
   Placeholder : levée d'erreur pour indiquer que l'exercice doit être implémenté.
 */
 function multiplication(a, b) {
-  // Vérifier le nombre d'arguments
-  if (arguments.length !== 2) return undefined;
+  // Vérifie si les deux paramètres sont bien des nombres
+  if (typeof a !== "number" || typeof b !== "number") {
+    return undefined; // on ne log plus ici
+  }
 
-  // Vérifier les types
-  if (typeof a !== 'number' || typeof b !== 'number') return undefined;
-  if (isNaN(a) || isNaN(b)) return undefined;
+  // Calcule le résultat
+  const resultat = a * b;
 
-  return a * b;
+  // Corrige le cas où le résultat serait -0
+  return Object.is(resultat, -0) ? 0 : resultat;
+}
+
+if (require.main === module) {
+  const resultat = multiplication(5, 3);
+  console.log("Résultat :", resultat);
 }
 
 // Ne pas modifier la ligne ci-dessous
-module.exports = { multiplication }
+module.exports = { multiplication };
